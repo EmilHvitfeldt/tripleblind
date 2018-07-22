@@ -1,0 +1,52 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# tripleblind
+
+The goal of tripleblind is to allow for easy annonomitation of the data before EDA to reduce biases.
+
+
+**VERY EARLY WIP, expect mayor changes and the framework falls into place**
+
+## Installation
+
+You can install ggpage from github with:
+
+```{r gh-installation, eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("EmilHvitfeldt/tripleblind")
+```
+
+## Example
+
+Under the hood it will label data that can be anamonitied.
+
+```{r example}
+library(tripleblind)
+
+strip(iris$Sepal.Length)
+
+strip(iris$Species)
+
+strip(sample(c(TRUE, FALSE), 10, replace = TRUE))
+```
+
+In the final release should be working on full datasets
+
+```{r cars}
+out <- purrr::map(iris, strip)
+purrr::map_df(out, "data")
+
+purrr::map(out, "conversion")
+```

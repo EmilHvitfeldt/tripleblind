@@ -14,14 +14,14 @@ knitr::opts_chunk$set(
 ```
 # tripleblind
 
-The goal of tripleblind is to allow for easy anonymization of the data before EDA to reduce biases.
+The goal of **tripleblind** is to allow for easy anonymization of the data before EDA to reduce biases.
 
 
 **VERY EARLY WIP, expect mayor changes and the framework falls into place**
 
 ## Installation
 
-You can install tripleblind from github with:
+You can install **tripleblind** from github with:
 
 ```{r gh-installation, eval = FALSE}
 # install.packages("devtools")

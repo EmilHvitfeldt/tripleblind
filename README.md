@@ -3,15 +3,15 @@
 
 # tripleblind
 
-The goal of tripleblind is to allow for easy anonymization of the data
-before EDA to reduce biases.
+The goal of **tripleblind** is to allow for easy anonymization of the
+data before EDA to reduce biases.
 
 **VERY EARLY WIP, expect mayor changes and the framework falls into
 place**
 
 ## Installation
 
-You can install tripleblind from github with:
+You can install **tripleblind** from github with:
 
 ``` r
 # install.packages("devtools")
@@ -42,34 +42,34 @@ strip(iris$Sepal.Length)
 
 strip(iris$Species)
 #> $data
-#>   [1] level3 level3 level3 level3 level3 level3 level3 level3 level3 level3
-#>  [11] level3 level3 level3 level3 level3 level3 level3 level3 level3 level3
-#>  [21] level3 level3 level3 level3 level3 level3 level3 level3 level3 level3
-#>  [31] level3 level3 level3 level3 level3 level3 level3 level3 level3 level3
-#>  [41] level3 level3 level3 level3 level3 level3 level3 level3 level3 level3
+#>   [1] level2 level2 level2 level2 level2 level2 level2 level2 level2 level2
+#>  [11] level2 level2 level2 level2 level2 level2 level2 level2 level2 level2
+#>  [21] level2 level2 level2 level2 level2 level2 level2 level2 level2 level2
+#>  [31] level2 level2 level2 level2 level2 level2 level2 level2 level2 level2
+#>  [41] level2 level2 level2 level2 level2 level2 level2 level2 level2 level2
 #>  [51] level1 level1 level1 level1 level1 level1 level1 level1 level1 level1
 #>  [61] level1 level1 level1 level1 level1 level1 level1 level1 level1 level1
 #>  [71] level1 level1 level1 level1 level1 level1 level1 level1 level1 level1
 #>  [81] level1 level1 level1 level1 level1 level1 level1 level1 level1 level1
 #>  [91] level1 level1 level1 level1 level1 level1 level1 level1 level1 level1
-#> [101] level2 level2 level2 level2 level2 level2 level2 level2 level2 level2
-#> [111] level2 level2 level2 level2 level2 level2 level2 level2 level2 level2
-#> [121] level2 level2 level2 level2 level2 level2 level2 level2 level2 level2
-#> [131] level2 level2 level2 level2 level2 level2 level2 level2 level2 level2
-#> [141] level2 level2 level2 level2 level2 level2 level2 level2 level2 level2
-#> Levels: level3 level1 level2
+#> [101] level3 level3 level3 level3 level3 level3 level3 level3 level3 level3
+#> [111] level3 level3 level3 level3 level3 level3 level3 level3 level3 level3
+#> [121] level3 level3 level3 level3 level3 level3 level3 level3 level3 level3
+#> [131] level3 level3 level3 level3 level3 level3 level3 level3 level3 level3
+#> [141] level3 level3 level3 level3 level3 level3 level3 level3 level3 level3
+#> Levels: level2 level1 level3
 #> 
 #> $conversion
 #> $conversion$old
 #> [1] "setosa"     "versicolor" "virginica" 
 #> 
 #> $conversion$new
-#> [1] "level3" "level1" "level2"
+#> [1] "level2" "level1" "level3"
 
 strip(sample(c(TRUE, FALSE), 10, replace = TRUE))
 #> $data
-#>  [1] "logical1" "logical1" "logical1" "logical2" "logical2" "logical1"
-#>  [7] "logical1" "logical1" "logical1" "logical1"
+#>  [1] "logical1" "logical2" "logical2" "logical1" "logical2" "logical2"
+#>  [7] "logical2" "logical1" "logical1" "logical1"
 #> 
 #> $conversion
 #> $conversion$old
@@ -87,16 +87,16 @@ purrr::map_df(out, "data")
 #> # A tibble: 150 x 5
 #>    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 #>           <dbl>       <dbl>        <dbl>       <dbl> <fct>  
-#>  1          5.1         3.5          1.4         0.2 level1 
-#>  2          4.9         3            1.4         0.2 level1 
-#>  3          4.7         3.2          1.3         0.2 level1 
-#>  4          4.6         3.1          1.5         0.2 level1 
-#>  5          5           3.6          1.4         0.2 level1 
-#>  6          5.4         3.9          1.7         0.4 level1 
-#>  7          4.6         3.4          1.4         0.3 level1 
-#>  8          5           3.4          1.5         0.2 level1 
-#>  9          4.4         2.9          1.4         0.2 level1 
-#> 10          4.9         3.1          1.5         0.1 level1 
+#>  1          5.1         3.5          1.4         0.2 level3 
+#>  2          4.9         3            1.4         0.2 level3 
+#>  3          4.7         3.2          1.3         0.2 level3 
+#>  4          4.6         3.1          1.5         0.2 level3 
+#>  5          5           3.6          1.4         0.2 level3 
+#>  6          5.4         3.9          1.7         0.4 level3 
+#>  7          4.6         3.4          1.4         0.3 level3 
+#>  8          5           3.4          1.5         0.2 level3 
+#>  9          4.4         2.9          1.4         0.2 level3 
+#> 10          4.9         3.1          1.5         0.1 level3 
 #> # ... with 140 more rows
 
 purrr::map(out, "conversion")
@@ -117,5 +117,5 @@ purrr::map(out, "conversion")
 #> [1] "setosa"     "versicolor" "virginica" 
 #> 
 #> $Species$new
-#> [1] "level1" "level2" "level3"
+#> [1] "level3" "level1" "level2"
 ```
